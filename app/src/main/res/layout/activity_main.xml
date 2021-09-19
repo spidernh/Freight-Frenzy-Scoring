@@ -21,6 +21,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/score_text"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,6 +52,15 @@
                     android:gravity="center"
                     android:text="@string/auton_title_text"
                     android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/autonScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/score_text"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -195,6 +213,82 @@
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/teleopScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/score_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/teleopAllianceHubTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teleop_alliance_hub_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/allianceHub"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/teleopAllianceOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/teleop_alliance_level_one_button_text" />
+
+                    <Button
+                        android:id="@+id/teleopAllianceTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/teleop_alliance_level_two_button_text" />
+
+                    <Button
+                        android:id="@+id/teleopAllianceThree"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/teleop_alliance_level_three_button_text" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/teleopOtherTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teleop_other_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/other"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/teleopOtherShared"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/teleop_other_shared_button_text" />
+
+                    <Button
+                        android:id="@+id/teleopOtherStorage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/teleop_other_storage_button_text" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -211,6 +305,110 @@
                     android:text="@string/endgame_title_text"
                     android:textSize="30sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/endgameScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/score_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/endgameBalanceTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/endgame_balance_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/balance"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/endgameBalanceAlliance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/endgame_balance_alliance_button_text" />
+
+                    <Button
+                        android:id="@+id/endgameBalanceShared"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/endgame_balance_shared_button_text" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/endgameDuckTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/endgame_duck_delivery_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/endgameDuck"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_weight="1"
+                    android:text="@string/endgame_duck_delivery_button_text" />
+
+                <TextView
+                    android:id="@+id/endgameCapTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/endgame_capping_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/endgameCap"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_weight="1"
+                    android:text="@string/endgame_capping_button_text" />
+
+                <TextView
+                    android:id="@+id/endgameParkingTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/endgame_parking_title_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/park"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/endgameParkPartial"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_weight="1"
+                        android:text="@string/endgame_parking_warehouse_partial_button_text" />
+
+                    <Button
+                        android:id="@+id/endgameParkFull"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_weight="1"
+                        android:text="@string/endgame_parking_warehouse_full_button_text" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
