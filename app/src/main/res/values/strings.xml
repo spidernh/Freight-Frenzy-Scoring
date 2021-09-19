@@ -1,12 +1,40 @@
 <resources>
-    <string name="app_name">Freight-Frenzy-Scoring</string>
+    <string name="app_name">Freight Frenzy Scoring</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="auton_title_text">Autonomous</string>
+    <string name="teleop_title_text">Tele-Op</string>
+    <string name="endgame_title_text">Endgame</string>
+
+    <string name="auton_preloaded_box_title_text">Pre-Loaded Box</string>
+    <string name="auton_duck_delivery_title_text">Duck Delivery</string>
+    <string name="auton_freight_scoring_title_text">Freight Scoring</string>
+    <string name="auton_parking_title_text">Parking</string>
+    <string name="teleop_alliance_hub_title_text">Alliance Hub</string>
+    <string name="teleop_other_title_text">Other</string>
+    <string name="endgame_balance_title_text">Balancing Hubs</string>
+    <string name="endgame_duck_delivery_title_text">Duck Delivery</string>
+    <string name="endgame_capping_title_text">Capping</string>
+    <string name="endgame_parking_title_text">Parking</string>
+
+    <string name="auton_preloaded_duck_vision_button_text">Duck</string>
+    <string name="auton_preloaded_team_vision_button_text">Team Element</string>
+    <string name="auton_duck_delivery_button_text">Duck Delivery</string>
+    <string name="auton_freight_scoring_storage_button_text">Storage Unit</string>
+    <string name="auton_freight_scoring_hub_button_text">Shipping Hub</string>
+    <string name="auton_parking_storage_partial_button_text">Partial Storage Unit</string>
+    <string name="auton_parking_storage_full_button_text">Full Storage Unit</string>
+    <string name="auton_parking_warehouse_partial_button_text">Partial Warehouse</string>
+    <string name="auton_parking_warehouse_full_button_text">Full Warehouse</string>
+    <string name="teleop_alliance_level_one_button_text">Level 1</string>
+    <string name="teleop_alliance_level_two_button_text">Level 2</string>
+    <string name="teleop_alliance_level_three_button_text">Level 3</string>
+    <string name="teleop_other_shared_button_text">Shared Shipping Hub</string>
+    <string name="teleop_other_storage_button_text">Freight In Storage Unit</string>
+    <string name="endgame_balance_alliance_button_text">Balanced Alliance Hub</string>
+    <string name="endgame_balance_shared_button_text">Unbalanced Shared Hub</string>
+    <string name="endgame_duck_delivery_button_text">Duck Delivery</string>
+    <string name="endgame_capping_button_text">Capping</string>
+    <string name="endgame_parking_warehouse_partial_button_text">Partial Warehouse</string>
+    <string name="endgame_parking_warehouse_full_button_text">Full Warehouse</string>
 </resources>
