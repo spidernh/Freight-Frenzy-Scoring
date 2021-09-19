@@ -1,10 +1,12 @@
 package com.example.freight_frenzy_scoring;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.math.MathUtils;
 
 import android.view.View;
 
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		autonParkWarehousePartial.setOnLongClickListener(this);
 		autonParkWarehouseFull.setOnLongClickListener(this);
 
+		loadData();
 		updateDisplay();
 	}
 
@@ -79,10 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				autonDuckBool = true;
 				break;
 			case R.id.autonFreightScoringStorage:
-				autonFreightHubCount++;
+				autonFreightStorageCount++;
+				autonFreightStorageCount = Math.max(0, autonFreightStorageCount);
 				break;
 			case R.id.autonFreightScoringHub:
 				autonFreightHubCount++;
+				autonFreightHubCount = Math.max(autonFreightHubCount, 0);
 				break;
 			case R.id.autonParkingStoragePartial:
 				autonParkStoragePartialBool = true;
@@ -113,10 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				autonDuckBool = false;
 				break;
 			case R.id.autonFreightScoringStorage:
-				autonFreightHubCount--;
+				autonFreightStorageCount--;
+				autonFreightStorageCount = Math.max(0, autonFreightStorageCount);
 				break;
 			case R.id.autonFreightScoringHub:
 				autonFreightHubCount--;
+				autonFreightHubCount = Math.max(0, autonFreightHubCount);
 				break;
 			case R.id.autonParkingStoragePartial:
 				autonParkStoragePartialBool = false;
@@ -143,6 +150,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			else
 				autonPreloadTeam.setBackgroundColor(getColor(R.color.disabled));
 		}
+		autonPreloadDuck.setText(getString(R.string.auton_preloaded_duck_vision_button_text) + ": " + autonPreloadDuckBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonPreloadDuckBool)
+				autonPreloadDuck.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonPreloadDuck.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonDuck.setText(getString(R.string.auton_duck_delivery_button_text) + ": " + autonDuckBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonDuckBool)
+				autonDuck.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonDuck.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonFreightStorage.setText(getString(R.string.auton_freight_scoring_storage_button_text) + ": " + autonFreightStorageCount);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonFreightStorageCount != 0)
+				autonFreightStorage.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonFreightStorage.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonFreightHub.setText(getString(R.string.auton_freight_scoring_hub_button_text) + ": " + autonFreightHubCount);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonFreightHubCount != 0)
+				autonFreightHub.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonFreightHub.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonParkStoragePartial.setText(getString(R.string.auton_parking_storage_partial_button_text) + ": " + autonParkStoragePartialBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonParkStoragePartialBool)
+				autonParkStoragePartial.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonParkStoragePartial.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonParkStorageFull.setText(getString(R.string.auton_parking_storage_full_button_text) + ": " + autonParkStorageFullBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonParkStorageFullBool)
+				autonParkStorageFull.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonParkStorageFull.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonParkWarehousePartial.setText(getString(R.string.auton_parking_warehouse_partial_button_text) + ": " + autonParkWarehousePartialBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonParkWarehousePartialBool)
+				autonParkWarehousePartial.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonParkWarehousePartial.setBackgroundColor(getColor(R.color.disabled));
+		}
+		autonParkWarehouseFull.setText(getString(R.string.auton_parking_warehouse_full_button_text) + ": " + autonParkWarehouseFullBool);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (autonParkWarehouseFullBool)
+				autonParkWarehouseFull.setBackgroundColor(getColor(R.color.enabled));
+			else
+				autonParkWarehouseFull.setBackgroundColor(getColor(R.color.disabled));
+		}
+		saveData();
+	}
+
+	private void saveData() {
+		SharedPreferences sp = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+		SharedPreferences.Editor editor = sp.edit();
+
+		editor.putBoolean("aPT", autonPreloadTeamBool);
+		editor.putBoolean("aPD", autonPreloadDuckBool);
+		editor.putBoolean("aD", autonDuckBool);
+		editor.putInt("aFS", autonFreightStorageCount);
+		editor.putInt("aFW", autonFreightHubCount);
+		editor.putBoolean("aPSP", autonParkStoragePartialBool);
+		editor.putBoolean("aPSF", autonParkStorageFullBool);
+		editor.putBoolean("aPWP", autonParkWarehousePartialBool);
+		editor.putBoolean("aPWF", autonParkWarehouseFullBool);
+
+		editor.apply();
+	}
+
+	public void loadData() {
+		SharedPreferences sp = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+
+		autonPreloadTeamBool = sp.getBoolean("aPT", false);
+		autonPreloadDuckBool = sp.getBoolean("aPD", false);
+		autonDuckBool = sp.getBoolean("aD", false);
+		autonFreightStorageCount = sp.getInt("aFS", 0);
+		autonFreightHubCount = sp.getInt("aFW", 0);
+		autonParkStoragePartialBool = sp.getBoolean("aPSP", false);
+		autonParkStorageFullBool = sp.getBoolean("aPSF", false);
+		autonParkWarehousePartialBool = sp.getBoolean("aPWP", false);
+		autonParkWarehouseFullBool = sp.getBoolean("aPWF", false);
+
 	}
 
 }

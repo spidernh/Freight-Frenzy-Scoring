@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="enabled">#4CAF50</color>
-    <color name="disabled">#F44336</color>
+    <color name="disabled">#8F8F8F</color>
+    <color name="freight_green">#CFE385</color>
+    <color name="freight_blue">#C8E9F5</color>
 </resources>
