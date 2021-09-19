@@ -6,6 +6,7 @@
     <string name="teleop_title_text">Tele-Op</string>
     <string name="endgame_title_text">Endgame</string>
     <string name="score_text">Score</string>
+    <string name="reset_text">Reset</string>
 
     <string name="auton_preloaded_box_title_text">Pre-Loaded Box</string>
     <string name="auton_duck_delivery_title_text">Duck Delivery</string>

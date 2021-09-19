@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private Button endgameDuck;
 	private Button endgameCap;
 	private Button endgameParkPartial, endgameParkFull;
+	private Button resetButton;
 
 	private int autonPreloadTeamCount, autonPreloadDuckCount;
 	private boolean autonDuckBool;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		autonScoreText = findViewById(R.id.autonScoreText);
 		teleopScoreText = findViewById(R.id.teleopScoreText);
 		endgameScoreText = findViewById(R.id.endgameScoreText);
+		resetButton = findViewById(R.id.resetButton);
 
 		autonPreloadTeam.setOnClickListener(this);
 		autonPreloadDuck.setOnClickListener(this);
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		endgameCap.setOnLongClickListener(this);
 		endgameParkPartial.setOnLongClickListener(this);
 		endgameParkFull.setOnLongClickListener(this);
+		resetButton.setOnLongClickListener(this);
 
 		loadData();
 		updateDisplay();
@@ -297,6 +300,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			case R.id.endgameParkFull:
 				endgameParkFullCount--;
 				endgameParkFullCount = MathUtils.clamp(endgameParkFullCount, 0, 2);
+				break;
+			case R.id.resetButton:
+				autonPreloadDuckCount = 0;
+				autonPreloadTeamCount = 0;
+				autonDuckBool = false;
+				autonFreightStorageCount = 0;
+				autonFreightHubCount = 0;
+				autonParkStoragePartialCount = 0;
+				autonParkStorageFullCount = 0;
+				autonParkWarehousePartialCount = 0;
+				autonParkWarehouseFullCount = 0;
+				teleopAllianceOneCount = 0;
+				teleopAllianceTwoCount = 0;
+				teleopAllianceThreeCount = 0;
+				teleopOtherSharedCount = 0;
+				teleopOtherStorageCount = 0;
+				endgameBalanceSharedBool = false;
+				endgameBalanceAllianceBool = false;
+				endgameDuckCount = 0;
+				endgameCapCount = 0;
+				endgameParkPartialCount = 0;
+				endgameParkFullCount = 0;
 				break;
 		}
 		updateDisplay();

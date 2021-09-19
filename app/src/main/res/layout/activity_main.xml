@@ -21,6 +21,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reset_text"
+        app:backgroundTint="@color/freight_blue" />
+
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="match_parent"
