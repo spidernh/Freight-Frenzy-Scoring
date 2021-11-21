@@ -3,20 +3,13 @@ package com.example.freight_frenzy_scoring;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.math.MathUtils;
-
-import android.view.View;
-
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.time.Clock;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
@@ -169,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				break;
 			case R.id.autonParkingWarehousePartial:
 				autonParkWarehousePartialCount++;
-				autonParkWarehouseFullCount = MathUtils.clamp(autonParkWarehousePartialCount, 0, 2);
+				autonParkWarehousePartialCount = MathUtils.clamp(autonParkWarehousePartialCount, 0, 2);
 				break;
 			case R.id.autonParkingWarehouseFull:
 				autonParkWarehouseFullCount++;
